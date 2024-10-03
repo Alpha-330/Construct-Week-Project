@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- FontAwesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>Tasko Application</title>
+</head>
+<body class="bg-light">
+    <section class="container-fluid mt-5 px-md-5">
+        <a href="index.html" class="btn btn-primary mb-4 shadow-sm">+ Create Task</a>
+        <h1 class="h3 font-weight-bold mb-4">Tasks</h1>
+        <div class="row kanban_boxes">
+
+            <div class="col-md-4 mb-4">
+                <div class="bg-white p-3 rounded-lg shadow-sm h-100" id="todoList" ondragover="allowDrop(event)" ondrop="drop(event, 'todoList')">
+                    <h2 class="h5 font-weight-semibold">To Do</h2>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="bg-white p-3 rounded-lg shadow-sm h-100" id="inProgressList" ondragover="allowDrop(event)" ondrop="drop(event, 'inProgressList')">
+                    <h2 class="h5 font-weight-semibold">In Progress  <i class="fa-solid fa-bars-progress ml-2"></i></h2>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="bg-white p-3 rounded-lg shadow-sm h-100" id="doneList" ondragover="allowDrop(event)" ondrop="drop(event, 'doneList')">
+                    <h2 class="h5 font-weight-semibold">Done <i class="fa-solid fa-check text-success ml-2"></i></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+<script>
+    window.onload = function() {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    if (storedTasks.length > 0) {
+        const taskList = document.getElementById('todoList');
+
+        storedTasks.forEach((task, index) => {
+            const taskElement = document.createElement('div');
+            taskElement.setAttribute('id', `task-${index}`);
+            taskElement.setAttribute('draggable', 'true');
+            taskElement.addEventListener('dragstart', dragStart);
+
+            taskElement.innerHTML = `
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary font-weight-bold">${task.taskName}</h5>
+                        <p class="card-text">
+                            <strong>Description:</strong> ${task.taskDescription}
+                        </p>
+                        <p class="card-text">
+                            <strong>Due Date:</strong> ${task.dueDate}
+                        </p>
+                        <p class="card-text">
+                            <strong>Assigned To:</strong> ${task.assignMember}
+                        </p>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button class="btn btn-sm btn-outline-danger delete-btn">Delete</button>
+                    </div>
+                </div>
+            `;
+
+            taskList.appendChild(taskElement);
+
+           
+            const deleteButton = taskElement.querySelector('.delete-btn');
+            deleteButton.addEventListener('click', function() {
+                taskElement.remove();
+
+                storedTasks.splice(index, 1);
+                localStorage.setItem('tasks', JSON.stringify(storedTasks));
+            });
+        });
+    }
+};
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function dragStart(event) {
+    event.dataTransfer.setData('text', event.target.id);
+}
+
+function drop(event, targetListId) {
+    event.preventDefault();
+    const taskId = event.dataTransfer.getData('text');
+    const taskElement = document.getElementById(taskId);
+    document.getElementById(targetListId).appendChild(taskElement);
+}
+</script>
