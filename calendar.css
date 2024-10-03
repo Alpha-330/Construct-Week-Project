@@ -1,0 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.calendar table{
+    width:80%;
+    border-collapse: collapse;
+    margin-left: 18%;
+    margin-top: 2%;
+
+}
+
+.calendar h2 {
+    font-weight: bolder;
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 2%;
+    margin-left: 20%;
+    font-size:300%;
+}
+
+.calendar-top {
+    margin:30px 0 20px 0;
+    display:flex;
+    margin-left: 18%;
+}
+
+.calendar-top-left{
+    display:flex;
+    gap:20px;
+}
+
+.calendar-top-left button {
+    padding:8px 8px;
+}
+
+.calendar-top-left a {
+    width:auto;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #F1F2F4;
+    padding:8px 8px;
+    color:black;
+}
+
+.calendar-top-right{
+    display:flex;
+    margin:0 0 0 19%;
+    gap:19px;
+}
+
+.calendar-top-right p {
+    width:auto;
+    font-weight: bold;
+    padding:8px 8px;
+}
+
+.calendar-top-right a {
+    width:auto;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #F1F2F4;
+    padding:8px 8px;
+    color:black;
+}
+
+th,td{
+    border: 1px solid black;
+    text-align: center;
+    width:15%;
+    padding: 10px 0 0 0;
+    
+}
+
+td{
+    vertical-align:middle;
+    font-size: 150%;
+    height: 80px;
+}
+th{
+    background-color: grey;
+    font-size: 120%;
+    height: 50px;
+}
+
+td:hover {
+    background-color: rgb(223, 220, 220);
+}
+
+@media (max-width:786px) {
+    .calendar table {
+        width:70%;
+    }
+
+    .calendar-top {
+        margin:20px 0 150px 0;
+    }
+
+    .calendar-top-left{
+        gap:10px;
+    }
+
+    .calendar-top-right{
+        margin:0 0 0 10%;
+        gap:10px;
+    }
+
+    th,td {
+        height:40px;
+        font-size: 120%;
+        text-align: center;
+    }
+
+    .calendar h2 {
+        font-size: 200%;
+        font-weight: 500;
+    }
+}
+
+@media (max-width:480px) {
+    .calendar table {
+        width:60%;
+    }
+
+    .calendar-top {
+        flex-direction: column;
+        margin:15px 0 10px 0;
+    }
+
+    .calendar-top-left{
+        gap:5px;
+    }
+
+    .calendar-top-right{
+        margin:0 0 0 5%;
+        gap:5px;
+    }
+
+    th,td {
+        height:30px;
+        font-size: 80%;
+        text-align: left;
+    }
+
+    .calendar h2 {
+        font-size: 150%;
+        font-weight: 300;
+    }
+}
