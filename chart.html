@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="./chart.css">
+
+</head>
+<body> 
+
+    <div class="project">
+        <div class="project-name">
+            Projects
+            Construct /week/ Project
+            Reports
+        </div>
+        <div class="graph">
+            <h1>Cumulative flow diagram</h1>
+
+        </div>
+
+    </div>
+
+    <div class="report">
+        <div class="label">Date Filter
+
+        </div>
+        <div class="label">From Date
+
+        </div>
+        <div class="label">To Date
+
+        </div>
+        <div class="input">
+            <input type="text" placeholder="past week2">
+        </div>
+        <div class="input">
+            <input type="text" placeholder="18/02/2024">
+        </div>
+        <div class="input">
+            <input type="text" placeholder="18/03/2024">
+        </div>
+
+    </div>
+
+    <div class="check_box">
+        <div class="box">
+            <input type="checkbox" style="width: 23px;height: 23px;">
+            <label for="Todo">To Do</label>
+
+        </div>
+
+        <div class="box">
+            <input type="checkbox" style="width: 23px;height: 23px;">
+            <label for="Todo">In Progress</label>
+
+        </div>
+
+        <div class="box">
+            <input type="checkbox" style="width: 23px;height: 23px;">
+            <label for="Todo">Done</label>
+
+        </div>
+        
+
+        
+        
+
+    </div>
+    <div class="container">
+        <div class="chart">
+            <canvas id="barchart" width="400px" height="400px"></canvas>
+        </div>
+
+        <div class="chart">
+            <canvas id="doughnut" width="400px" height="400px"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart1.js"></script>
+    <script src="chart2.js"></script>
+    
+</body>
+</html>
