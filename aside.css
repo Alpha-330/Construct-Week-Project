@@ -1,0 +1,65 @@
+
+        body {
+            margin: 0;
+            padding-left: 20%; /* Make room for the sidebar */
+            height: 2000px; /* Set height to show scroll effect */
+            font-family: Arial, sans-serif;
+        }
+
+        /* The sidebar menu */
+        .sidenav {
+            height: 100%;
+            width: 19%;
+            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            padding-top: 20px;
+            border-right: 2px solid grey;
+        }
+
+        /* Sidebar link styles */
+        .sidenav a {
+            color: rgb(57, 54, 54);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            background-color: rgb(91, 228, 255);
+            opacity: 80%;
+        }
+
+        .sidenav a:active {
+            background-color: rgb(91, 228, 255);
+            border: 2px solid rgba(8, 52, 95, 0.986);
+        }
+
+        button{
+            border: 2px solid grey;
+            padding: 5px;
+            width: 90%;
+            border-radius: 4px;
+        }
+        button:focus {
+            outline:  auto 5px; 
+            opacity: 50%;
+        }
+        button :hover {
+            border: none;
+            outline:  auto; 
+            opacity: 50%;
+        }
+        .sd1, .sd2, .sd3 {
+            margin-bottom: 50px;
+        }
+
+        .last_sb {
+            text-align: center;
+            border: none;
+            padding: 5px;
+            width: 90%;
+            border-radius: 4px;
+        }

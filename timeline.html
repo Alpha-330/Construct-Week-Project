@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Calendar</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        .calendar div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .calendar div span.date {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 12px;
+            color: gray;
+        }
+        .task {
+            background-color: #9b59b6;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .task.assigned {
+            background-color: #3498db;
+        }
+        body {
+            margin: 0;
+            padding-left: 165px; /* Make room for the sidebar */
+            height: 2000px; /* Set height to show scroll effect */
+            font-family: Arial, sans-serif;
+        }
+
+        /* The sidebar menu */
+        .sidenav {
+            height: 100%;
+            width: 160px;
+            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            padding-top: 20px;
+            border-right: 2px solid grey;
+        }
+
+        /* Sidebar link styles */
+        .sidenav a {
+            color: rgb(57, 54, 54);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            background-color: rgb(91, 228, 255);
+            opacity: 80%;
+        }
+
+        .sidenav a:active {
+            background-color: rgb(91, 228, 255);
+            border: 2px solid rgba(8, 52, 95, 0.986);
+        }
+
+        button{
+            border: 2px solid grey;
+            padding: 5px;
+            width: 90%;
+            border-radius: 4px;
+        }
+        button:focus {
+            outline:  auto 5px; 
+            opacity: 50%;
+        }
+        button :hover {
+            border: none;
+            outline:  auto; 
+            opacity: 50%;
+        }
+        .sd1, .sd2, .sd3 {
+            margin-bottom: 50px;
+        }
+
+        .last_sb {
+            text-align: center;
+            border: none;
+            padding: 5px;
+            width: 90%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+        <!--Side Navigation-->
+        <aside class="sidenav">
+            <div class="sd1">
+                <a href="https://github.com/Alpha-330/Construct-Week-Project" target="a.html" class="sb">
+                    <box-icon type='solid' name='plane-take-off' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon> 
+                    Timeline
+                </a>
+                <a href="" class="sb">
+                    <box-icon name='columns' color='#b6b0b0' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Board
+                </a>
+                <a href="" class="sb">
+                    <box-icon name='calendar' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Calendar
+                </a>
+                <a href="" class="sb">
+                    <box-icon name='list-ul' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    List
+                </a>
+                <a href="" class="sb">
+                    <box-icon name='line-chart' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Graph
+                </a>
+                <a href="" class="sb">
+                    <box-icon name='plus' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Add view
+                </a>
+            </div>
+        
+            <div class="sd2">
+                <a href="" class="sb">
+                    <box-icon name='code-alt' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Code
+                </a>
+            </div>
+        
+            <div class="sd3">
+                <a href="" class="sb">
+                    <box-icon name='food-menu' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Project pages
+                </a>
+                <a href="" class="sb">
+                    <box-icon name='cog' type='logo' color='#a29f9f' animation='flashing-hover' size='14px'></box-icon>
+                    Project settings
+                </a>
+            </div>
+        
+            <div class="last_sb">
+                <button type="button" class="sb_button">Invite People</button>
+            </div>
+        </aside>
+        
+        <!-- <div class="content">
+            <h1>Main Content</h1>
+            <p>Scroll down to see the sidebar remain fixed while the content moves.</p>
+        </div> -->
+        
+        
+
+
+    <h1>Task Calendar</h1>
+    <h2>October</h2>
+    <div class="calendar" id="calendar">
+        <!-- Calendar days go here -->
+    </div>
+
+    <script>
+        // Sample data for tasks
+        const tasks = [
+            { taskName: "index.html", startDate: "2023-10-02", endDate: "2023-10-04" }
+        ];
+
+        const daysInMonth = 31;  // Example for October
+        const startDay = 1;  // Assuming 1st is a Monday
+
+        // Create calendar layout
+        function createCalendar() {
+            const calendarDiv = document.getElementById('calendar');
+            let today = new Date().getDate();
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                let dayDiv = document.createElement('div');
+                dayDiv.innerHTML = `<span class="date">${i}</span>`;
+
+                // Highlight current day
+                if (i === today) {
+                    dayDiv.style.borderColor = "orange";
+                }
+
+                // Add tasks
+                tasks.forEach(task => {
+                    let taskStart = new Date(task.startDate).getDate();
+                    let taskEnd = new Date(task.endDate).getDate();
+                    if (i >= taskStart && i <= taskEnd) {
+                        let taskDiv = document.createElement('div');
+                        taskDiv.classList.add('task', 'assigned');
+                        taskDiv.innerText = task.taskName;
+                        dayDiv.appendChild(taskDiv);
+                    }
+                });
+
+                calendarDiv.appendChild(dayDiv);
+            }
+        }
+
+        // Initialize the calendar
+        createCalendar();
+    </script>
+</body>
+</html>
