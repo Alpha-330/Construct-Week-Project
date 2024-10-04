@@ -1,0 +1,230 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fefdfb;
+    color: #333;
+}
+
+header {
+    padding: 0px 20px;
+
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.logo img{
+    align-self: center;
+}
+.logo {
+   
+    font-size: 24px;
+    font-weight: bold;
+    color: #23b4d4;;
+
+    margin-right: 15%;
+    display: flex;
+}
+
+.nav-links {
+    
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.start-btn {
+    background-color: #23b4d4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 20px;
+    /* background-color: #f5f5f5; */
+}
+
+.hero-content {
+    max-width: 100%;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-image img {
+    max-width: 100%;
+}
+
+.testimonials {
+    padding: 40px 20px;
+    background-color: #fdfdfb;
+    text-align: center;
+}
+
+.testimonials p {
+    margin: 10px 0;
+    font-style: italic;
+    color: #666;
+}
+
+footer {
+    
+    background-image: url("https://www.w3schools.com/images/background_in_space.webp");
+    padding: 40px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    color: #ffffff;
+    
+}
+
+.footer-column h4 {
+    
+    margin-bottom: 10px;
+}
+
+
+/* Style the nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    
+}
+
+/* Style the logo to align content */
+.logo {
+    display: flex;
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between image and text */
+}
+
+/* Adjust the logo text */
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #23b4d4;
+}
+
+/* Style the navigation links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Testimonials section */
+.testimonials {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    text-align: center;
+}
+
+/* Each testimonial box */
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px); /* Slight hover effect */
+}
+
+/* Testimonial text */
+.testimonial p {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Testimonial author */
+.testimonial span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #23b4d4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonials {
+        grid-template-columns: 1fr; /* Stack testimonials on small screens */
+    }
+}
+
+
+/* Social icons */
+.footer-socials {
+    margin-top: 20px;;
+    text-align: left;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #555;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #23b4d4;
+}
+
+/* Footer copyright */
+footer p.copyright {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #999;
+}
