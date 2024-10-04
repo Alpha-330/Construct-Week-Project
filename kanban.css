@@ -17,12 +17,12 @@
 .member_name1{
     height: 50px;
     width: 50px;
-    z-index: 9999;
     cursor: pointer;
 }
 .member_name2{
     height: 50px;
     width: 50px;
-    margin-left: -10px;
+    margin-left: 40px;
     cursor: pointer;
+    position: absolute;
 }

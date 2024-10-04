@@ -7,24 +7,34 @@
     <!-- FontAwesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bootstrap CSS link -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="./kanban.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
+    <link rel="stylesheet" href="./kanban.css">
+    <link rel="stylesheet" href="./list.html">
+
     <title>Tasko Application</title>
 
 </head>
 <body class="bg-light">
     <section class="container-fluid mt-5 px-md-5">
-        <h3 class="font-weight-bold mb-4">CWP Board</h3>
-        <div class="row">
-            <div class="mt-4 col-lg-3 col-md-5 col-8">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <h3 class="font-weight-bold">CWP Board</h3>
+            </div>
+            <div class="col-6 text-end d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">Create Task</button>
+            </div>
+        </div>
+        <div class="row mt-4 align-items-center">
+            <div class="col-lg-3 col-md-5 col-8">
                 <div class="search_icon">
                   <i class="fa-solid fa-magnifying-glass"></i>
                   <input type="text" class="form-control" id="searchInput" placeholder="Search">
                 </div>
             </div>
-            <div class="col-3 d-flex mt-3">
+            <div class="col-3 d-flex">
                 <div class="d-flex justify-content-center bg-primary rounded-circle align-items-center font-weight-bold text-white member_name1">P</div>
                 <div class="d-flex justify-content-center bg-success rounded-circle align-items-center font-weight-bold text-white member_name2">H</div>
             </div>
@@ -51,15 +61,95 @@
         </div>
     </section>
 
+    <!-- modal  -->
+    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="taskModalLabel">Create Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <div class="form-group mb-3">
+                            <label for="taskName" class="form-label fw-bold">Task Title</label>
+                            <input type="text" id="taskName" placeholder="Enter task title" class="form-control" required />
+                        </div>
+                
+                        <div class="form-group mb-3">
+                            <label for="taskDescription" class="form-label fw-bold">Description</label>
+                            <textarea id="taskDescription" placeholder="Enter task description" class="form-control"></textarea>
+                        </div>
+                
+                        <div class="form-group mb-3">
+                            <label for="startDate" class="form-label fw-bold">Due Date</label>
+                            <input type="date" id="startDate" class="form-control" required />
+                        </div>
+                
+                        <div class="form-group mb-3">
+                            <label for="priority" class="form-label fw-bold">Priority</label>
+                            <select id="priority" class="form-control" required>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                
+                        <div class="form-group mb-4">
+                            <label for="assignMember" class="form-label fw-bold">Assign to Team Members (write name using comma)</label>
+                            <input type="text" id="assignMember" placeholder="Enter names, separated by commas" class="form-control" />
+                        </div>
+                
+                        <button id="createTask" type="button" class="btn btn-primary w-100">Create Task</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 
 <script>
-    window.onload = function() {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    document.getElementById('createTask').addEventListener('click', function () {
+        const taskName = document.getElementById('taskName').value;
+        const taskDescription = document.getElementById('taskDescription').value;
+        const dueDate = document.getElementById('startDate').value;
+        const priority = document.getElementById('priority').value;
+        const assignMember = document.getElementById('assignMember').value;
 
-    if (storedTasks.length > 0) {
+        if (taskName && taskDescription && dueDate && priority && assignMember) {
+            const task = {
+                taskName,
+                taskDescription,
+                dueDate,
+                priority,
+                assignMember
+            };
+
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.push(task);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            
+            alert("Task Added Successfully!");
+
+
+            document.getElementById('taskName').value = '';
+            document.getElementById('taskDescription').value = '';
+            document.getElementById('startDate').value = '';
+            document.getElementById('priority').value = 'Low'; 
+            document.getElementById('assignMember').value = '';  
+
+            loadTasks();
+        } 
+    });
+    
+    window.onload = loadTasks;
+
+    function loadTasks() {
+        const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
         const taskList = document.getElementById('todoList');
+        taskList.innerHTML = '';
 
         storedTasks.forEach((task, index) => {
             const taskElement = document.createElement('div');
@@ -87,7 +177,7 @@
                     </div>
                 </div>
             `;
-
+            
             taskList.appendChild(taskElement);
 
             const deleteButton = taskElement.querySelector('.delete-btn');
@@ -96,38 +186,44 @@
                 storedTasks.splice(index, 1);
                 localStorage.setItem('tasks', JSON.stringify(storedTasks));
             });
+
         });
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function(event) {
+            const searchTerm = event.target.value.toLowerCase();
+
+            document.querySelectorAll('.task-item').forEach(taskElement => {
+                const taskName = taskElement.querySelector('.card-title').textContent.toLowerCase();
+                const taskDescription = taskElement.querySelector('.card-text').textContent.toLowerCase();
+
+                if (taskName.includes(searchTerm) || taskDescription.includes(searchTerm)) {
+                    taskElement.style.display = 'block';
+                } else {
+                    taskElement.style.display = 'none';
+                }
+            });
+        });
+        
+    }
+    
+
+    function allowDrop(event) {
+        event.preventDefault();
     }
 
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', function(event) {
-        const searchTerm = event.target.value.toLowerCase();
+    function drop(event, listId) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData('text/plain');
+        const taskElement = document.getElementById(data);
+        const targetList = document.getElementById(listId);
 
-        document.querySelectorAll('.task-item').forEach(taskElement => {
-            const taskName = taskElement.querySelector('.card-title').textContent.toLowerCase();
-            const taskDescription = taskElement.querySelector('.card-text').textContent.toLowerCase();
+        if (targetList && taskElement) {
+            targetList.appendChild(taskElement); 
+        }
+    }
 
-            if (taskName.includes(searchTerm) || taskDescription.includes(searchTerm)) {
-                taskElement.style.display = 'block';
-            } else {
-                taskElement.style.display = 'none';
-            }
-        });
-    });
-};
-
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function dragStart(event) {
-    event.dataTransfer.setData('text', event.target.id);
-}
-
-function drop(event, targetListId) {
-    event.preventDefault();
-    const taskId = event.dataTransfer.getData('text');
-    const taskElement = document.getElementById(taskId);
-    document.getElementById(targetListId).appendChild(taskElement);
-}
+    function dragStart(event) {
+        event.dataTransfer.setData('text/plain', event.target.id);
+    }
 </script>
