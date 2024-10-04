@@ -9,15 +9,27 @@
     <!-- Bootstrap CSS link -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./kanban.css">
     
     <title>Tasko Application</title>
+
 </head>
 <body class="bg-light">
     <section class="container-fluid mt-5 px-md-5">
-        <a href="index.html" class="btn btn-primary mb-4 shadow-sm">+ Create Task</a>
-        <h1 class="h3 font-weight-bold mb-4">Tasks</h1>
-        <div class="row kanban_boxes">
+        <h3 class="font-weight-bold mb-4">CWP Board</h3>
+        <div class="row">
+            <div class="mt-4 col-lg-3 col-md-5 col-8">
+                <div class="search_icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" class="form-control" id="searchInput" placeholder="Search">
+                </div>
+            </div>
+            <div class="col-3 d-flex mt-3">
+                <div class="d-flex justify-content-center bg-primary rounded-circle align-items-center font-weight-bold text-white member_name1">P</div>
+                <div class="d-flex justify-content-center bg-success rounded-circle align-items-center font-weight-bold text-white member_name2">H</div>
+            </div>
+        </div>
+        <div class="row kanban_boxes mt-4 ">
 
             <div class="col-md-4 mb-4">
                 <div class="bg-white p-3 rounded-lg shadow-sm h-100" id="todoList" ondragover="allowDrop(event)" ondrop="drop(event, 'todoList')">
@@ -53,6 +65,7 @@
             const taskElement = document.createElement('div');
             taskElement.setAttribute('id', `task-${index}`);
             taskElement.setAttribute('draggable', 'true');
+            taskElement.classList.add('task-item');
             taskElement.addEventListener('dragstart', dragStart);
 
             taskElement.innerHTML = `
@@ -77,16 +90,30 @@
 
             taskList.appendChild(taskElement);
 
-           
             const deleteButton = taskElement.querySelector('.delete-btn');
             deleteButton.addEventListener('click', function() {
                 taskElement.remove();
-
                 storedTasks.splice(index, 1);
                 localStorage.setItem('tasks', JSON.stringify(storedTasks));
             });
         });
     }
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function(event) {
+        const searchTerm = event.target.value.toLowerCase();
+
+        document.querySelectorAll('.task-item').forEach(taskElement => {
+            const taskName = taskElement.querySelector('.card-title').textContent.toLowerCase();
+            const taskDescription = taskElement.querySelector('.card-text').textContent.toLowerCase();
+
+            if (taskName.includes(searchTerm) || taskDescription.includes(searchTerm)) {
+                taskElement.style.display = 'block';
+            } else {
+                taskElement.style.display = 'none';
+            }
+        });
+    });
 };
 
 function allowDrop(event) {

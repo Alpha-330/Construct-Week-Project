@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <link rel="stylesheet" href="list.css">
+</head>
+<body>
+    <div class="project-list-container">
+        <h1>Projects / Construct-week Project</h1>
+        <br>    
+        <h2>List</h2>
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-box">
+            <button class="search-btn">&#128269;</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="select-all"></th>
+                    <th>Key</th>
+                    <th>Summary</th>
+                    <th>Status</th>
+                    <th>Assignee</th>
+                    <th>Due Date</th>
+                    <th>Labels</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Reporter</th>
+                </tr>
+            </thead>
+            <tbody id="taskTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const taskTableBody = document.getElementById('taskTableBody');
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            tasks.forEach((task, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td>${task.taskName}</td>
+                    <td>${task.taskDescription}</td>
+                    <td class="${getPriorityClass(task.priority)}">${task.priority}</td>
+                    <td>${task.assignMember}</td>
+                    <td>${task.dueDate}</td>
+                    <td></td>
+                    <td>${new Date().toLocaleDateString()}</td>
+                    <td>${new Date().toLocaleDateString()}</td>
+                    <td>Prashant Palve</td>
+                `;
+
+                taskTableBody.appendChild(row);
+            });
+
+            function getPriorityClass(priority) {
+            if (priority === 'Low') return 'priority-low';
+            if (priority === 'Medium') return 'priority-medium';
+            if (priority === 'High') return 'priority-high';
+            return '';
+            }
+        });
+    </script>
+</body>
+</html>
