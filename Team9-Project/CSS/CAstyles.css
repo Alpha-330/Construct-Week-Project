@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../Images/bg7.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+/* Container Styling for Login and Create Account */
+.login-container, .create-account-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box, .create-account-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.jira-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #0052cc;
+    outline: none;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0052cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: #003d99;
+    transform: translateY(-2px);
+}
+
+.or-text {
+    margin: 20px 0;
+    color: #777;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.social-btn .social-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+} 
+
+.social-btn.google { color: #000000; font-weight: 550;}
+.social-btn.microsoft { color: #000000; font-weight: 550;}
+.social-btn.apple { color: #000000; font-weight: 550;}
+.social-btn.slack { color: #000000; font-weight: 550;}
+
+.social-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.login-links {
+    margin-top: 20px;
+    color: #555;
+}
+
+.login-links a {
+    color: #0052cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-links a:hover {
+    color: #003d99;
+}
+
+.atlassian-logo {
+    margin-top: 30px;
+    text-align: center;
+    color: #555;
+}
+
+.atlassian-logo img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.atlassian-logo p {
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Click Animation */
+.social-btn.active,
+.primary-btn.active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .login-box, .create-account-box {
+        padding: 20px;
+    }
+
+    .jira-logo {
+        width: 60px;
+    }
+
+    .primary-btn {
+        font-size: 14px;
+    }
+
+    .social-btn {
+        font-size: 12px;
+    }
+}
+
+/* More or aditional- Styles for Create Account Page */
+.create-account-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-account-form .input-field {
+    margin-bottom: 15px;
+}
+
+.create-account-box h2 {
+    color: #333;
+}
+
+.create-account-box .login-links a {
+    color: #0052cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.create-account-box .login-links a:hover {
+    color: #003d99;
+}

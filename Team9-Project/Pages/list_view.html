@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- css file link  -->
+     <link rel="stylesheet" href="../CSS/dbstyles.css">
+     <link rel="stylesheet" href="../CSS/list.css">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"><img class="logo"src="../Images/logo21.png" alt="Logo"/></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly">
+                      <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="./kanban.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="./timeline.html"><span class="d-none d-md-block">Your Work</span><span class="d-md-none">Timeline</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="./kanban.html"><span class="d-none d-md-block">Projects</span><span class="d-md-none">Board</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="./calendar.html"><span class="d-none d-md-block">Filters</span><span class="d-md-none">Calendar</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="./list_view.html"><span class="d-none d-md-block">Dashboard</span><span class="d-md-none">List</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="./graph.html"><span class="d-none d-md-block">Apps</span><span class="d-md-none">Graph</span></a>
+                      </li>
+                      <li class="nav-item navbar-item">
+                        <a class="nav-link fw-bold active" href="#">
+                          Teams <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="sub_menu">
+                          <li><a href="#">Invite People</a></li>
+                          <li><a href="#">Create a Team</a></li>
+                          <li><a href="#">Search People and team</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div class="d-flex w-md-25">
+                          <input class="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-primary w-50" data-bs-toggle="modal" data-bs-target="#taskModal">Create Task</button>
+                        </div>
+                      </li>
+                      <div class="nav-icons d-flex justify-content-around align-items-center">
+                        <a href="#" ><i class="fa-solid fs-4 fa-bell"></i></a>
+                        <a href="#" ><i class="fa-solid fs-4 fa-circle-question"></i></a>
+                        <a href="#" ><i class="fa-solid fs-4 fa-gear"></i></a>
+                        <a href="#" ><i class="fa-solid fs-4 fa-user"></i></a>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <aside class="sidenav col-2 d-md-block d-none">
+                <div class="sd1">
+                    <a class="sb" href="./kanban.html">
+                        <i class="fa-solid fa-columns"></i>
+                        <span>Board</span>
+                    </a>
+                    <a class="sb" href="./timeline.html">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Timeline</span>
+                    </a>
+                    <a class="sb" href="./calendar.html">
+                        <i class="fa-solid fa-calendar-alt"></i>
+                        <span>Calendar</span>
+                    </a>
+                    <a class="sb" href="#">
+                        <i class="fa-solid fa-list-ul"></i>
+                        <span>List</span>
+                    </a>
+                    <a class="sb" href="./graph.html">
+                        <i class="fa-solid fa-chart-bar"></i>
+                        <span>Graph</span>
+                    </a>
+                    <a class="sb" href="#">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>My Work</span>
+                    </a>
+                    <a class="sb" href="#">
+                        <i class="fa-solid fa-folder"></i>
+                        <span>Project</span>
+                    </a>                    
+                    <a class="sb" href="./login.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <a class="sb" href="#">
+                        <i class="fa-solid fa-info-circle"></i>
+                        <span>Learn More</span>
+                    </a>
+                    
+                </div>
+            </aside>
+        
+            <!-- Main content area (Right Side) -->
+            <div class="content col-md-10 py-4" id="content-area">
+                <div class="bg-light">
+                    <div class="project-list-container">
+                        <h4 class="heading mb-2">Projects / Construct-week Project</h4>
+                        <h3 class="main_heading mb-3">List</h3>
+
+                        <div class="row">  
+                            <div class="search-container col-5">
+                                <input type="text" placeholder="Search..." class="search-box" id="searchInput">
+                                <button class="search-btn">&#128269;</button>
+                            </div>
+                            <div class="col-7 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">Create Task</button>
+                            </div>
+                        </div>
+                        
+                        <div class="table_section">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" id="select-all"></th>
+                                        <th>Key</th>
+                                        <th>Summary</th>
+                                        <th>Status</th>
+                                        <th>Assignee</th>
+                                        <th>Due Date</th>
+                                        <th>Labels</th>
+                                        <th>Created</th>
+                                        <th>Updated</th>
+                                        <th>Reporter</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="taskTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+                    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="taskModalLabel">Create Task</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="taskForm">
+                                        <div class="form-group mb-3">
+                                            <label for="taskName" class="form-label fw-bold">Task Title</label>
+                                            <input type="text" id="taskName" placeholder="Enter task title" class="form-control" required />
+                                        </div>
+                                
+                                        <div class="form-group mb-3">
+                                            <label for="taskDescription" class="form-label fw-bold">Description</label>
+                                            <textarea id="taskDescription" placeholder="Enter task description" class="form-control"></textarea>
+                                        </div>
+                                
+                                        <div class="form-group mb-3">
+                                            <label for="startDate" class="form-label fw-bold">Due Date</label>
+                                            <input type="date" id="startDate" class="form-control" required />
+                                        </div>
+                                
+                                        <div class="form-group mb-3">
+                                            <label for="priority" class="form-label fw-bold">Priority</label>
+                                            <select id="priority" class="form-control" required>
+                                                <option value="Low">Low</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="High">High</option>
+                                            </select>
+                                        </div>
+                                
+                                        <div class="form-group mb-4">
+                                            <label for="assignMember" class="form-label fw-bold">Assign to Team Members (write name using comma)</label>
+                                            <input type="text" id="assignMember" placeholder="Enter names, separated by commas" class="form-control" />
+                                        </div>
+                                
+                                        <button id="createTask" type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Create Task</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- js  -->
+<script src="../JS/list.js"></script>

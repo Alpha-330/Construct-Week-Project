@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+.calendar div {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+.calendar div span.date {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 12px;
+    color: gray;
+}
+.task {
+    background-color: #9b59b6;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.task.assigned {
+    background-color: #3498db;
+}

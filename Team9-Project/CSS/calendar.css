@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    border-radius: 10px;
+}
+
+.calendar h2 {
+    font-weight: 600;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.calendar-top {
+    width: 100%;
+    display: flex;
+    gap:30px;
+    margin-bottom: 20px;
+}
+
+.calendar-top-left, .calendar-top-right {
+    display: flex;
+    gap: 15px;
+}
+.calendar-top-right{
+    margin-left: 7.4%;
+}
+.calendar-top-left button,
+.calendar-top-left a,
+.calendar-top-right a,
+.calendar-top-right p {
+    background-color: #F1F2F4;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+}
+
+.calendar-top-left button {
+    border: none;
+    cursor: pointer;
+}
+
+.calendar-top-left a, .calendar-top-right a {
+    cursor: pointer;
+}
+
+.calendar table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+th {
+    background-color: #e1e1e1;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+td:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .calendar {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .calendar h2 {
+        font-size: 1.5em;
+    }
+
+    .calendar table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .calendar-top {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .calendar-top-left, .calendar-top-right {
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar h2 {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    .calendar table {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+
+    .calendar-top {
+        flex-direction: column;
+    }
+
+    .calendar-top-left, .calendar-top-right {
+        width: 100%;
+    }
+
+    .calendar-top-left a, .calendar-top-right a {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}

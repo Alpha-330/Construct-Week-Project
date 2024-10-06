@@ -1,0 +1,31 @@
+.search_icon {
+    position: relative;
+}
+.search_icon input {
+  padding-left: 30px;
+}
+.search_icon .fa-magnifying-glass {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: #aaa;
+}
+.member_name1{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+.member_name2{
+    height: 50px;
+    width: 50px;
+    margin-left: 40px;
+    cursor: pointer;
+    position: absolute;
+}
+.plus{
+  color: rgb(89, 109, 208);
+  margin-left: 40px;
+  margin-top: -20px;
+  font-size: 30px;
+  font-weight: bold;
+}

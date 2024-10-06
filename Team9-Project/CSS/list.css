@@ -1,0 +1,157 @@
+
+.project-list-container {
+    /* margin: auto; */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+}
+
+/* animation- 
+Subtle scaling effect when hovering over the 
+entire container */
+.project-list-container:hover {
+    transform: scale(1.01);
+}
+
+/* h2 {
+    color: #666768;
+    font-weight: 600;
+}
+
+h1{
+    color:  #666768;
+    font-size: 20px;
+} */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for table rows */
+tbody tr:hover {
+    background-color: #e8f0fe;
+    cursor: pointer; 
+    transform: scale(1.01);
+}
+
+/* Highlighting header */
+table th {
+    background-color: #f9fafb;
+    font-weight: 500;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+/* Animation for hovering over table headers */
+table th:hover {
+    background-color: #dfe1e6; 
+    color: #0052cc; 
+}
+
+/* Background color change for table rows */
+table td {
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* In-progress cell effect in able */
+.in-progress {
+    color: #0052cc;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+ /* Change background color for alternating rows    /* if required  */
+ /* tbody tr:nth-child(even) {
+    background-color: #f4f5f7; */
+
+
+/* Subtle hover animation for checkboxes */
+input[type="checkbox"] {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+/* larging checkboxes on hover */
+input[type="checkbox"]:hover {
+    transform: scale(1.5);
+}
+
+/* Subtle shadow effect when hovering over rows */
+tbody tr:hover {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Table headers fixed position effect */
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+
+/* Search box container */
+.search-container {
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.search-box {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    width: 250px;
+    transition: width 0.4s ease;
+}
+
+.search-box:focus {
+    width: 300px; 
+    border-color: #0e0d0d; 
+}
+
+.search-btn {
+    background-color: #eaeff8;
+    border: 1px solid #6198eb;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #a6bfe4;
+}
+
+.priority-low {
+    color: blue;
+}
+.priority-medium {
+    color: orange;
+}
+.priority-high {
+    color: red;
+}
+
+
+@media (max-width:800px) {
+    .table_section{
+        overflow-x: scroll;
+    }
+}

@@ -1,0 +1,148 @@
+/* navbar css  */
+.logo{
+  height: 80px;
+}
+
+nav{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  position: fixed !important;
+  z-index: 9999;
+}
+
+.navbar-nav{
+  width: 100%;
+}
+.nav-icons a{
+  text-decoration: none;
+}
+.nav-icons{
+  width: 15%;
+}
+.nav-icons i{
+  color: black;
+}
+.nav-icons a{
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-icons a:hover{
+  background-color: #e3eeff;
+}
+.sub_menu{
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  background-color: white;
+  padding: 10px 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  z-index: 9999;
+}
+.sub_menu li{
+  list-style: none;
+}
+.sub_menu li a{
+  color: black;
+  text-decoration: none;
+}
+.nav-link:hover{
+  color: blue;
+}
+.navbar-item:hover .sub_menu{
+  display: block;
+}
+
+.nav-item .nav-link {
+  position: relative;
+  color: #000; 
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+.nav-item .nav-link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px;
+  left: 0;
+  background-color: blue; 
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.nav-item .nav-link:hover::before {
+  visibility: visible;
+  width: 100%; 
+}
+
+
+/* dash baord or side bar styles */
+.sidenav {
+  background-color: rgb(249, 249, 249);
+  border-right: 1px solid gray;
+  color: white;
+  padding: 10px;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  margin-top: 14vh;
+}
+
+.sidenav a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.sidenav a:hover {
+  background-color: #e3eeff;
+  border: 1px black solid;
+}
+
+.sidenav a span {
+  margin-left: 10px;
+}
+
+#content-area {
+  height: 85vh;
+  margin-top: 15vh;
+  margin-left: 16.5%;
+}
+.sb span{
+  font-weight: bold;
+  color: rgb(80, 80, 80);
+}
+@media (max-width:768px) {
+  #content-area {
+    margin-left: 0%;
+  }
+  .nav-item .nav-link:hover::before {
+    width: 25%; 
+  }
+  .nav-link{
+    margin-top: 10px;
+  }
+  
+}
+.modal{
+  z-index: 9999;
+  margin-top: 2.5%;
+}
+.heading {
+  color: #666768;
+}
+.heading +h3{
+  color:  #3e3e3e;
+}
