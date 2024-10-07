@@ -1,6 +1,4 @@
-# Construct-Week-Project
-
------Task Manager------
+# Task Manager
 
 ## Introduction
 -The Task Manager is a web application designed to help users efficiently manage their tasks. It provides a user-friendly interface where users can create, update, and track their tasks. With features like task categorization (To Do, In Progress, Done), user account creation, and a timeline overview, the application aims to streamline task management and enhance productivity.
