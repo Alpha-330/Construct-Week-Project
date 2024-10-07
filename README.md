@@ -10,7 +10,8 @@ Frontend
 https://masai-task-managerr.netlify.app/
 
 ## Directory Structure
-```Team9-Project/
+```
+Team9-Project/
 ├─ index.html
 ├─ CSS/
 │  ├─ calendar.css
@@ -37,7 +38,8 @@ https://masai-task-managerr.netlify.app/
 │  ├─ kanban.html
 │  ├─ list_view.html
 │  ├─ login.html
-│  ├─ timeline.html```
+│  ├─ timeline.html
+```
 
 ## Video Walkthrough of the project
 https://youtu.be/cci2sB0cSEU?si=rhmRo2jU6avb-JZ0
