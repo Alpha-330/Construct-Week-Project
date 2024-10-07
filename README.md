@@ -81,8 +81,6 @@ Graph page for task reviews and statistics.
 ##Installation & Getting Started
 To run the project locally, follow these instructions:
 
-bash
-Copy code
 # Clone the repository
 git clone https:https://github.com/Alpha-330/Construct-Week-Project.git
 
@@ -105,14 +103,18 @@ Once the application is running, you can:
 
 -Manage your tasks on the dashboard, utilizing the sidebar for navigation.
 
+
 ##Credentials
 For authenticated pages, you can use the any dummy credential
+
 
 ##APIs Used
 This project does not rely on any external APIs.
 
+
 ##API Endpoints
 This project does not have backend API endpoints.
+
 
 ##Technology Stack
 HTML
