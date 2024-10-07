@@ -10,7 +10,7 @@ Frontend
 https://masai-task-managerr.netlify.app/
 
 ## Directory Structure
-Team9-Project/
+```Team9-Project/
 ├─ index.html
 ├─ CSS/
 │  ├─ calendar.css
@@ -37,7 +37,7 @@ Team9-Project/
 │  ├─ kanban.html
 │  ├─ list_view.html
 │  ├─ login.html
-│  ├─ timeline.html
+│  ├─ timeline.html```
 
 ## Video Walkthrough of the project
 https://youtu.be/cci2sB0cSEU?si=rhmRo2jU6avb-JZ0
@@ -85,4 +85,4 @@ For authenticated pages, you can use the any dummy credential
 - HTML
 - CSS
 - Bootstrap
-- JavaScript
+- JavaScript```
