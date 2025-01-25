@@ -4,25 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management</title>
-    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-            <nav>
+        <nav>
             <div class="logo">
                 <img src="../Images/logo2.png" alt="logo" height="100px">
             </div>
-            
             <ul class="nav-links">
                 <li><a href="#">Features</a></li>
                 <li><a href="#">For Teams</a></li>
                 <li><a href="#">Resources</a></li>
                 <li><a href="#">Pricing</a></li>
-                <li><a href="./login.html">Log In</a></li>
-                
+                <li><a href="./Pages/login.html">Log In</a></li>
             </ul>
-            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links mobile">
+                <li><a href="#">Features</a></li>
+                <li><a href="#">For Teams</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="./Pages/login.html">Log In</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -32,7 +41,7 @@
             <h1>Organize your work and life, finally.</h1>
             <p>Simplify life for both you and your team with the world's #1 task manager and to-do list app. 500 K+ reviews</p>
             
-            <a href="./kanban.html" class="start-btn">Start for free</a><br><br><br>
+            <a href="./Pages/kanban.html" class="start-btn">Start for free</a><br><br><br>
 
             <h1>Task Management Tool</h1>
 
@@ -124,6 +133,15 @@
             <p class="copyright">© 2024 Task Manager. All rights reserved.</p>
         </div>
     </footer>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.querySelector(".hamburger");
+            const mobileNav = document.querySelector(".nav-links.mobile");
+
+            hamburger.addEventListener("click", function () {
+                mobileNav.classList.toggle("active");
+            });
+        });
+    </script>
 </body>
 </html>

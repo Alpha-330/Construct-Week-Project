@@ -11,12 +11,12 @@
     <div class="login-container">
         <div class="login-box">
             <img src="../Images/logo2.png" alt="Jira Logo" class="jira-logo">
-            <form action="">
-                <h2>Log in to continue</h2>
-                <input type="email" placeholder="Enter your email" class="input-field" required>
-                <input type="password" placeholder="Enter your Password" class="input-field" required>
-                <a href="./kanban.html"><button class="primary-btn">Continue</button></a>
-            </form>
+            <form onsubmit="event.preventDefault(); window.location.href='./kanban.html';">
+    <h2>Log in to continue</h2>
+    <input type="email" placeholder="Enter your email" class="input-field" required>
+    <input type="password" placeholder="Enter your Password" class="input-field" required>
+    <button type="submit" class="primary-btn">Login</button>
+</form>
             <p class="or-text">Or continue with:</p>
             <div class="social-buttons">
                 <button class="social-btn google">

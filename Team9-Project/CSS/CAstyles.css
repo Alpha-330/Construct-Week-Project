@@ -30,7 +30,7 @@ body::before {
 /* Container Styling for Login and Create Account */
 .login-container, .create-account-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     padding: 20px;
 }
 

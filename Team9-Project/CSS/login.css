@@ -25,6 +25,7 @@ body::before {
     bottom: 0;
     background-image: url("../Images/bg7.png");
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     filter: blur(1px);
     z-index: -1;
@@ -33,7 +34,7 @@ body::before {
 /* Container Styling */
 .login-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     padding: 20px;
 }
 
