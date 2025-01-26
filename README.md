@@ -7,7 +7,7 @@
 Frontend
 
 ## Deployed App
-https://masai-task-managerr.netlify.app/
+[https://masai-task-managerr.netlify.app/](https://task-manager-cw.netlify.app/)
 
 ## Directory Structure
 ```
